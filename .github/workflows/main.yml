@@ -18,10 +18,12 @@ jobs:
         python3 -c "
         import sys
         sys.path.append('.')
-        exec(open('zorya.py').read())
+        # НЕ запускаем файл автоматически
+        from zorya import ZoryaInterpreter
         interpreter = ZoryaInterpreter()
         interpreter.eval('print что 42')
         interpreter.eval('x = 100')
         interpreter.eval('print что x * 2')
-        interpreter.eval('print что factorial(5)')  # если у тебя функция есть
+        interpreter.eval('print что 120')
+        interpreter.eval('print что factorial(5)')  # если функция есть
         "
