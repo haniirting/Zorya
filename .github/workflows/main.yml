@@ -1,0 +1,20 @@
+name: Zorya Interpreter
+
+on: [push, pull_request]
+
+jobs:
+  run-zorya:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+
+    - name: Run Zorya
+      run: |
+        python3 -c "
+        exec('''$(cat zorya.py)''')
+        "
