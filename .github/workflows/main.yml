@@ -19,4 +19,9 @@ jobs:
         import sys
         sys.path.append('.')
         exec(open('zorya.py').read())
+        interpreter = ZoryaInterpreter()
+        interpreter.eval('print что 42')
+        interpreter.eval('x = 100')
+        interpreter.eval('print что x * 2')
+        interpreter.eval('print что factorial(5)')  # если у тебя функция есть
         "
