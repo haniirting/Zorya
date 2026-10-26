@@ -9,12 +9,14 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Install Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
         python-version: '3.12'
 
     - name: Run Zorya
       run: |
         python3 -c "
-        exec('''$(cat zorya.py)''')
+        import sys
+        sys.path.append('.')
+        exec(open('zorya.py').read())
         "
